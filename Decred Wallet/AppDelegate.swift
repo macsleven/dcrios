@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
 
+
     fileprivate func createMenuView() {
         // create viewController code...
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -51,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func populateFirstScreen() {
+
         if isWalletCreated() {
             createMenuView()
         } else {
