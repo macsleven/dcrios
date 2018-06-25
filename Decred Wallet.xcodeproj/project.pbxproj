@@ -204,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AB6BDC20CA7DB900460281 /* Wallet.framework in Frameworks */,
+				958B537220CA9E5500F6684C /* Wallet.framework in Frameworks */,
 				1E3D73D7EA02D2D2D3CD052C /* Pods_Decred_Wallet.framework in Frameworks */,
 				B853136BC96255F028D8CB64 /* Pods_Decred_Wallet.framework in Frameworks */,
 			);
