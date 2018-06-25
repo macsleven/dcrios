@@ -11,8 +11,7 @@ import Wallet
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigation : UINavigationController?
-    
-    fileprivate func walletSetupView() {
+    fileprivate func walletSetupView(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let walletSetupController = storyboard.instantiateViewController(withIdentifier: "WalletSetupViewController") as! WalletSetupViewController
         let nv = UINavigationController(rootViewController: walletSetupController)
@@ -43,6 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
 
+    fileprivate func gotoSetting() {
+        let vcSetting =  GlobalConstants.ConstantStoryboardMain.getControllerInstance(identifier: "SettingsController2", storyBoard: GlobalConstants.ConstantStoryboardMain.IDENTIFIER_STORYBOARD_MAIN) as! SettingsController
+         vcSetting.isFromLoader = true
+
+         self.navigation?.pushViewController(vcSetting, animated: true)
+    }
+
     fileprivate func populateFirstScreen() {
         if isWalletCreated() {
             createMenuView()
@@ -54,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func showAnimatedStartScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let startScreenController = storyboard.instantiateViewController(withIdentifier:"WaiterScreenViewController") as! WaiterScreenViewController
-        
+
         startScreenController.onFinish = {self.populateFirstScreen()}
         startScreenController.onTapAnimation = {self.gotoSetting()}
         self.navigation = UINavigationController(rootViewController: startScreenController)
@@ -77,10 +83,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func gotoSetting() {
         let vcSetting = GlobalConstants.ConstantStoryboardMain.getControllerInstance(identifier: "SettingsController2", storyBoard: GlobalConstants.ConstantStoryboardMain.IDENTIFIER_STORYBOARD_MAIN) as! SettingsController
         vcSetting.isFromLoader = true
-        
+
         self.navigation?.pushViewController(vcSetting, animated: true)
     }
-    
+
     func applicationWillResignActive(_: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
