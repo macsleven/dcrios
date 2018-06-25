@@ -35,9 +35,15 @@
 		95877FE920B70CBB00CE53D2 /* TransactionHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95877FE720B70CBB00CE53D2 /* TransactionHistoryViewController.swift */; };
 		95877FEC20B70D4B00CE53D2 /* TransactionHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95877FEA20B70D4B00CE53D2 /* TransactionHistoryTableViewCell.xib */; };
 		95877FED20B70D4B00CE53D2 /* TransactionHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95877FEB20B70D4B00CE53D2 /* TransactionHistoryTableViewCell.swift */; };
+		9589905F20D7A055001C4D28 /* AccountsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9589905E20D7A055001C4D28 /* AccountsHeaderView.xib */; };
 		958B537220CA9E5500F6684C /* Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95AB6BDB20CA7DB900460281 /* Wallet.framework */; };
-		958B537620CABB6F00F6684C /* loaderAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 958B537520CABB6E00F6684C /* loaderAnimation.gif */; };
-		958B537820CABB7C00F6684C /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958B537720CABB7C00F6684C /* iOSDevCenters+GIF.swift */; };
+		95B80F3120DCCCF2004D5613 /* loaderAnimation.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95B80F2F20DCCCF2004D5613 /* loaderAnimation.gif */; };
+		95B80F3220DCCCF2004D5613 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B80F3020DCCCF2004D5613 /* iOSDevCenters+GIF.swift */; };
+		95BFA83220D156D900BAED71 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BFA83020D156D900BAED71 /* MenuCell.swift */; };
+		95BFA83320D156D900BAED71 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95BFA83120D156D900BAED71 /* MenuCell.xib */; };
+		95CC024020D3DAFF00DA73AF /* AccountDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC023E20D3DAFF00DA73AF /* AccountDataCell.swift */; };
+		95CC024120D3DAFF00DA73AF /* AccountDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95CC023F20D3DAFF00DA73AF /* AccountDataCell.xib */; };
+		95CC024420D3F15800DA73AF /* AccountsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC024320D3F15800DA73AF /* AccountsData.swift */; };
 		B853136BC96255F028D8CB64 /* Pods_Decred_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28FD1BD0208F6C9A0051F58F /* Pods_Decred_Wallet.framework */; };
 		DD0C493E208A160900986C6B /* WalletSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C493D208A160900986C6B /* WalletSetupViewController.swift */; };
 		DD0C4940208A401A00986C6B /* saveSeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C493F208A401A00986C6B /* saveSeedViewController.swift */; };
@@ -140,6 +146,13 @@
 		958B537520CABB6E00F6684C /* loaderAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loaderAnimation.gif; sourceTree = "<group>"; };
 		958B537720CABB7C00F6684C /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 		95AB6BDB20CA7DB900460281 /* Wallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Wallet.framework; path = wallet/debug/Wallet.framework; sourceTree = "<group>"; };
+		95B80F2F20DCCCF2004D5613 /* loaderAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loaderAnimation.gif; sourceTree = "<group>"; };
+		95B80F3020DCCCF2004D5613 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		95BFA83020D156D900BAED71 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		95BFA83120D156D900BAED71 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
+		95CC023E20D3DAFF00DA73AF /* AccountDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDataCell.swift; sourceTree = "<group>"; };
+		95CC023F20D3DAFF00DA73AF /* AccountDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDataCell.xib; sourceTree = "<group>"; };
+		95CC024320D3F15800DA73AF /* AccountsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsData.swift; sourceTree = "<group>"; };
 		A1A97C56BC75512DA55A8A70 /* Pods-Decred WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decred WalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Decred WalletTests/Pods-Decred WalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		DD0C493D208A160900986C6B /* WalletSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSetupViewController.swift; sourceTree = "<group>"; };
 		DD0C493F208A401A00986C6B /* saveSeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveSeedViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +261,8 @@
 		DD4C89DB2038EE60003FEA0C /* view util */ = {
 			isa = PBXGroup;
 			children = (
+				95B80F3020DCCCF2004D5613 /* iOSDevCenters+GIF.swift */,
+				95B80F2F20DCCCF2004D5613 /* loaderAnimation.gif */,
 				DD4C89D72038CABD003FEA0C /* keyPadButton.swift */,
 				DDB89410202F8471002F85EE /* String.swift */,
 				DDB89418202F8F3E002F85EE /* UIIMage.swift */,
@@ -653,6 +668,7 @@
 				DD1D5C7E20AEDB15009789DD /* WalletLogViewController.swift in Sources */,
 				DD4C89DA2038EC3F003FEA0C /* keyPadButton.swift in Sources */,
 				DDB8941D202F9252002F85EE /* ExSlideMenuController.swift in Sources */,
+				95B80F3220DCCCF2004D5613 /* iOSDevCenters+GIF.swift in Sources */,
 				2883CA72209B52AE0053D9BB /* WaiterScreenViewController.swift in Sources */,
 				DDB89421202F93B3002F85EE /* OverviewViewController.swift in Sources */,
 				2883CA702099D40F0053D9BB /* DropDownSearchField.swift in Sources */,
