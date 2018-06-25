@@ -397,7 +397,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDA3E28720292EF900C83D18 /* Build configuration list for PBXNativeTarget "Decred Wallet" */;
 			buildPhases = (
-				F3B0171A8260DC317BE30829 /* [CP] Check Pods Manifest.lock */,
 				DDA3E26620292EF900C83D18 /* Sources */,
 				DDA3E26720292EF900C83D18 /* Frameworks */,
 				DDA3E26820292EF900C83D18 /* Resources */,
@@ -579,21 +578,6 @@
 			showEnvVarsInLog = 0;
 		};
 		CD31934294CC1D8A101AAC4B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Decred WalletTests/Pods-Decred WalletTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D1C1F21C20254B5EAD1242CA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
