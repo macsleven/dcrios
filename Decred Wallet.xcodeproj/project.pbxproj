@@ -18,7 +18,6 @@
 		2883CA72209B52AE0053D9BB /* WaiterScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883CA71209B52AE0053D9BB /* WaiterScreenViewController.swift */; };
 		2883CA74209B5BA40053D9BB /* Modals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2883CA73209B5BA40053D9BB /* Modals.storyboard */; };
 		289807DE20BEE55A00C30338 /* DcrTransactionHistorySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289807DD20BEE55A00C30338 /* DcrTransactionHistorySupport.swift */; };
-		28A68EFF20B462090090B346 /* Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A68EFE20B462090090B346 /* Wallet.framework */; };
 		28E5EB6B20908AC0002DCCB5 /* GeneratedSeedDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5EB6A20908AC0002DCCB5 /* GeneratedSeedDisplayViewController.swift */; };
 		28E5EB6D20908AE0002DCCB5 /* SeedCheckupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5EB6C20908AE0002DCCB5 /* SeedCheckupViewController.swift */; };
 		28E5EB7320924632002DCCB5 /* CreatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E5EB7220924632002DCCB5 /* CreatePasswordViewController.swift */; };
@@ -205,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28A68EFF20B462090090B346 /* Wallet.framework in Frameworks */,
+				95AB6B3820C6762300460281 /* Wallet.framework in Frameworks */,
 				1E3D73D7EA02D2D2D3CD052C /* Pods_Decred_Wallet.framework in Frameworks */,
 				B853136BC96255F028D8CB64 /* Pods_Decred_Wallet.framework in Frameworks */,
 			);
@@ -461,7 +460,7 @@
 				DDA3E27B20292EF900C83D18 /* Frameworks */,
 				DDA3E27C20292EF900C83D18 /* Resources */,
 				CD31934294CC1D8A101AAC4B /* [CP] Embed Pods Frameworks */,
-				1EAC0CA71423A7F89C5ED8BC /* [CP] Copy Pods Resources */,
+				338D1098C808660C037140A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -553,21 +552,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		18E2B8DC6718CB21299854F8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Decred WalletTests/Pods-Decred WalletTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1C01BF5629253FB5D5BA1BFA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,6 +565,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Decred Wallet/Pods-Decred Wallet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		338D1098C808660C037140A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Decred WalletTests/Pods-Decred WalletTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		88FE9A5EBEA8DA5D7D45387C /* [CP] Embed Pods Frameworks */ = {
@@ -601,21 +600,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Decred Wallet/Pods-Decred Wallet-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B42A3DFD2D55CB62FDA68843 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Decred Wallet/Pods-Decred Wallet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD31934294CC1D8A101AAC4B /* [CP] Embed Pods Frameworks */ = {
