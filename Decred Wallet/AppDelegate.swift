@@ -10,8 +10,7 @@ import Wallet
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var navigation : UINavigationController?
-    fileprivate func walletSetupView(){
+    fileprivate func walletSetupView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let walletSetupController = storyboard.instantiateViewController(withIdentifier: "WalletSetupViewController") as! WalletSetupViewController
         let nv = UINavigationController(rootViewController: walletSetupController)
@@ -19,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nv
         window?.makeKeyAndVisible()
     }
-
 
     fileprivate func createMenuView() {
         // create viewController code...
@@ -43,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
     }
 
-
     fileprivate func gotoSetting() {
         let vcSetting =  GlobalConstants.ConstantStoryboardMain.getControllerInstance(identifier: "SettingsController2", storyBoard: GlobalConstants.ConstantStoryboardMain.IDENTIFIER_STORYBOARD_MAIN) as! SettingsController
          vcSetting.isFromLoader = true
@@ -52,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     fileprivate func populateFirstScreen() {
-
         if isWalletCreated() {
             createMenuView()
         } else {
