@@ -154,13 +154,6 @@
 		95877FEB20B70D4B00CE53D2 /* TransactionHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		9589905E20D7A055001C4D28 /* AccountsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsHeaderView.xib; sourceTree = "<group>"; };
 		95AB6BDB20CA7DB900460281 /* Wallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Wallet.framework; path = wallet/debug/Wallet.framework; sourceTree = "<group>"; };
-		95B80F2F20DCCCF2004D5613 /* loaderAnimation.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loaderAnimation.gif; sourceTree = "<group>"; };
-		95B80F3020DCCCF2004D5613 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
-		95BFA83020D156D900BAED71 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
-		95BFA83120D156D900BAED71 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
-		95CC023E20D3DAFF00DA73AF /* AccountDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDataCell.swift; sourceTree = "<group>"; };
-		95CC023F20D3DAFF00DA73AF /* AccountDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountDataCell.xib; sourceTree = "<group>"; };
-		95CC024320D3F15800DA73AF /* AccountsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsData.swift; sourceTree = "<group>"; };
 		A1A97C56BC75512DA55A8A70 /* Pods-Decred WalletTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decred WalletTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Decred WalletTests/Pods-Decred WalletTests.release.xcconfig"; sourceTree = "<group>"; };
 		DD0C493D208A160900986C6B /* WalletSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSetupViewController.swift; sourceTree = "<group>"; };
 		DD0C493F208A401A00986C6B /* saveSeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveSeedViewController.swift; sourceTree = "<group>"; };
@@ -212,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95AB6B3820C6762300460281 /* Wallet.framework in Frameworks */,
+				95AB6BDC20CA7DB900460281 /* Wallet.framework in Frameworks */,
 				1E3D73D7EA02D2D2D3CD052C /* Pods_Decred_Wallet.framework in Frameworks */,
 				B853136BC96255F028D8CB64 /* Pods_Decred_Wallet.framework in Frameworks */,
 			);
@@ -631,6 +624,24 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Decred WalletTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3B0171A8260DC317BE30829 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Decred Wallet-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
