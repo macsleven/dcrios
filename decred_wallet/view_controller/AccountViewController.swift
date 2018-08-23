@@ -15,7 +15,7 @@ protocol  AccountDetailsCellProtocol{
 class AccountViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Properties
-    var myBalances:[AccountsData] = [AccountsData]()
+   private var myBalances:[AccountsData] = [AccountsData]()
     var account :GetAccountResponse?
     var visible = false
 
@@ -72,10 +72,10 @@ class AccountViewController: UIViewController, UITableViewDataSource, UITableVie
             do{
                 let strAccount = try AppContext.instance.decrdConnection?.wallet?.getAccounts(0)
                 self.account = try JSONDecoder().decode(GetAccountResponse.self, from: (strAccount?.data(using: .utf8))!)
-                self.myBalances = {
+               self.myBalances = {[weak self] in
                     let colors = [#colorLiteral(red: 0.1807299256, green: 0.8454471231, blue: 0.6397696137, alpha: 1),#colorLiteral(red: 0.1593483388, green: 0.4376987219, blue: 1, alpha: 1),#colorLiteral(red: 0.992682755, green: 0.4418484569, blue: 0.2896475494, alpha: 1),#colorLiteral(red: 0.9992011189, green: 0.7829756141, blue: 0.3022021651, alpha: 1),#colorLiteral(red: 0.7991421819, green: 0.7997539639, blue: 0.7992369533, alpha: 1)]
                     var colorCount = -1
-                    return self.account!.Acc.map({
+                return self!.account!.Acc.map({
                         colorCount += 1
                         return AccountsData(entity: $0, color: colors[colorCount])
                     })

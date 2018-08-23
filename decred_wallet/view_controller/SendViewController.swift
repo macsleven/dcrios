@@ -155,6 +155,7 @@ class SendViewController: UIViewController, UITextFieldDelegate, QRCodeReaderVie
     private func signTransaction(sendAll:Bool?){
         do{
             let isShouldBeConfirmed = UserDefaults.standard.bool(forKey: "pref_spend_fund_switch")
+            
             let result = try AppContext.instance.decrdConnection?.wallet?.sendTransaction((password?.data(using:.utf8))!, destAddr: self.walletAddress.text!, amount: Int64((self.tfAmount.text)!)!, srcAccount: (self.selectedAccount?.Number)!, requiredConfs: isShouldBeConfirmed ? 0 : 2, sendAll: sendAll ?? false)
             transactionSucceeded(hash:result?.hexEncodedString())
         } catch let error{

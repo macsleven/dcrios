@@ -47,10 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isWalletCreated() {
             AppContext.instance.decrdConnection = DcrdConnection()
             AppContext.instance.decrdConnection?.wallet = MobilewalletNewLibWallet(NSHomeDirectory() + "/Documents/dcrwallet/", "bdb")
+          
             AppContext.instance.decrdConnection?.wallet?.initLoader()
 
             do{
-            ((try AppContext.instance.decrdConnection?.wallet?.open()))
+                try
+                autoreleasepool{
+                    ((try AppContext.instance.decrdConnection?.wallet?.open()))
+                    AppContext.instance.decrdConnection?.wallet?.runGC()
+                }
             } catch let error{
                 print(error)
             }
@@ -98,7 +103,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.navigation?.pushViewController(vcSetting, animated: true)
     }
-    
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        print("app delegate low memory")
+         AppContext.instance.decrdConnection?.wallet?.runGC()
+        
+    }
     func applicationWillResignActive(_: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

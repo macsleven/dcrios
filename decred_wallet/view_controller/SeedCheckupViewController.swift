@@ -47,6 +47,11 @@ class SeedCheckupViewController: UIViewController, SeedCheckupProtocol {
     @IBAction func onClear(_ sender: Any) {
         self.tfSeedCheckWord.clean()
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        AppContext.instance.decrdConnection?.wallet?.runGC()
+    }
     
     // MARK: - Navigation
 

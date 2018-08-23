@@ -67,8 +67,8 @@ MobilewalletBlockScanResponseProtocol, MobilewalletSpvSyncResponseProtocol {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("low memory")
-        //AppContext.instance.decrdConnection?.wallet?.runGC()
+        print(" overview low memory")
+        AppContext.instance.decrdConnection?.wallet?.runGC()
         // Dispose of any resources that can be recreated.
     }
     

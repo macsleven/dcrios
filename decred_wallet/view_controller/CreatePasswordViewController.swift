@@ -28,6 +28,7 @@ class CreatePasswordViewController: UIViewController, SeedCheckupProtocol, UITex
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        print("low memeory create passwork")
         // Dispose of any resources that can be recreated.
         AppContext.instance.decrdConnection?.wallet?.runGC()
     }
