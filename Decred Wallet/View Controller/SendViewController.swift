@@ -1,10 +1,8 @@
 //
 //  SendViewController.swift
 //  Decred Wallet
-//
-//  Created by Suleiman Abubakar on 10/02/2018.
-//  Copyright © 2018 Macsleven. All rights reserved.
-//
+//  Copyright © 2018 The Decred developers.
+//  see LICENSE for details.
 
 import UIKit
 
@@ -17,20 +15,55 @@ class SendViewController: UIViewController {
     @IBOutlet weak var walletAddress: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        accountDropdown.initMenu(["Item A", "Item B", "Item C"], actions: [({ () -> (Void) in
-            print("Estou fazendo a ação A")
-        }), ({ () -> (Void) in
-            print("Estou fazendo a ação B")
-        }), ({ () -> (Void) in
-            print("Estou fazendo a ação C")
-        })])
+        
+        self.accountDropdown.backgroundColor = UIColor.clear
+        accountDropdown.initMenu(["My Wallet [153.0055 DCR]", "My Wallet2 [153.0055 DCR]", "My Wallet3 [153.0055 DCR]"], actions: ({ (ind, val) -> (Void) in
+            
+            self.accountDropdown.setAttributedTitle(self.getAttributedString(str: val), for: UIControlState.normal)
+           
+            self.accountDropdown.backgroundColor = UIColor(red: 173.0/255.0, green: 231.0/255.0, blue: 249.0/255.0, alpha: 1.0)
+        }))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
+         self.navigationItem.title = "Send"
     }
   
+    func getAttributedString(str: String) -> NSAttributedString {
+        
+        let stt = str as NSString!
+        let atrStr = NSMutableAttributedString(string: stt! as String)
+        let dotRange = stt?.range(of: "[")
+        //print("Index = \(dotRange?.location)")
+        if(str.length > 0) {
+            atrStr.addAttribute(NSAttributedStringKey.font,
+                                value: UIFont(
+                                    name: "Helvetica-bold",
+                                    size: 15.0)!,
+                                range: NSRange(
+                                    location:0,
+                                    length:(dotRange?.location)!))
+            
+            atrStr.addAttribute(NSAttributedStringKey.font,
+                                value: UIFont(
+                                    name: "Helvetica",
+                                    size: 15.0)!,
+                                range: NSRange(
+                                    location:(dotRange?.location)!,
+                                    length:(str.length - (dotRange?.location)!)))
+            
+            atrStr.addAttribute(NSAttributedStringKey.foregroundColor,
+                                value: UIColor.darkGray,
+                                range: NSRange(
+                                    location:0,
+                                    length:str.length))
+            
+        }
+        return atrStr
+    }
+    
     @IBAction func accountDropdown(_ sender: Any) {
     }
 }

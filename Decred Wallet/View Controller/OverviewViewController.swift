@@ -1,23 +1,38 @@
 //
 //  OverviewViewController.swift
 //  Decred Wallet
-//
-//  Created by Suleiman Abubakar on 10/02/2018.
-//  Copyright © 2018 Macsleven. All rights reserved.
-//
-import SlideMenuControllerSwift
+//  Copyright © 2018 The Decred developers.
+//  see LICENSE for details.
 
-class OverviewViewController: UIViewController {
+import SlideMenuControllerSwift
+import Wallet
+
+class OverviewViewController: UIViewController, WalletGetTransactionsResponseProtocol, WalletTransactionListenerProtocol, WalletBlockNotificationErrorProtocol {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lbCurrentBalance: UILabel!
     
-    var mainContens = ["2.000000 DCR", "3.000000 DCR", "21.340000 DCR", "1.000000 DCR", "12.000000 DCR", "1.000000 DCR", "12.30000 DCR","2.000000 DCR", "3.000000 DCR","2.000000 DCR", "3.000000 DCR"]
+    var mainContens = ["4.000000 DCR", "-3.000000 DCR", "21.340000 DCR", "-1.000000 DCR", "12.000000 DCR", "-1.000000 DCR", "12.30000 DCR","-2.000000 DCR", "3.000000 DCR","2.000000 DCR", "3.000000 DCR"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerCellNib(DataTableViewCell.self)
+        
+        AppContext.instance.decrdConnection?.connect(onSuccess: { (height) in
+            //let accounts = AppContext.instance.decrdConnection?.getAccounts()
+            //let address = AppContext.instance.decrdConnection?.getCurrentAddress(account: (accounts?.Acc.first?.Number)!)
+            //print("Address:\(address)")
+            AppContext.instance.decrdConnection?.addObserver(transactionsHistoryObserver: self)
+            AppContext.instance.decrdConnection?.addObserver(forBlockError: self)
+            AppContext.instance.decrdConnection?.addObserver(forUpdateNotifications: self)
+            AppContext.instance.decrdConnection?.fetchTransactions()
+            lbCurrentBalance.text = "\((AppContext.instance.decrdConnection?.getAccounts()?.Acc.first?.dcrTotalBalance)!) DCR"
+            self.lbCurrentBalance.text = "\((AppContext.instance.decrdConnection?.getAccounts()?.Acc.first?.dcrTotalBalance)!) DCR"
+        }, onFailure: { (error) in
+            print(error)
+        })
     }
-    
+   
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
     }
@@ -25,14 +40,47 @@ class OverviewViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationBarItem()
+        self.navigationItem.title = "Overview"
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func onResult(_ json: String!) {
+        mainContens = [String]()
+        do{
+            let transactions = try JSONDecoder().decode(GetTransactionResponse.self, from:json.data(using: .utf8)!)
+            for transactionPack in transactions.Transactions!{
+                for creditTransaction in transactionPack.Credits!{
+                    mainContens.append("\(creditTransaction.dcrAmount) DCR")
+                }
+                for debitTransaction in transactionPack.Debits!{
+                    mainContens.append("-\(debitTransaction.dcrAmount) DCR")
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }catch let error{
+            print(error)
+        }
     }
     
+    func onBlockNotificationError(_ err: Error!) {
+        
+    }
+    
+    func onTransaction(_ transaction: String!) {
+        let transactions = try! JSONDecoder().decode(Transaction.self, from:transaction.data(using: .utf8)!)
+        for creditTransaction in transactions.Credits!{
+            self.mainContens.append("\(creditTransaction.dcrAmount) DCR")
+        }
+        for debitTransaction in transactions.Debits!{
+            self.mainContens.append("-\(debitTransaction.dcrAmount) DCR")
+        }
+    }
+    
+    func onTransactionRefresh() {
+        self.tableView.reloadData()
+    }
 }
-
 
 extension OverviewViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -53,7 +101,7 @@ extension OverviewViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: DataTableViewCell.identifier) as! DataTableViewCell
-        let data = DataTableViewCellData(imageUrl: "dummy", text: mainContens[indexPath.row])
+        let data = DataTableViewCellData(imageUrl: "dummy", text: self.mainContens[indexPath.row])
         cell.setData(data)
         return cell
     }
