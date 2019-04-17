@@ -11,9 +11,11 @@ import SafariServices
 
 class HelpViewController: UIViewController,SFSafariViewControllerDelegate {
     
+    @IBOutlet weak var helpInfo: UILabel!
     @IBOutlet weak var linkBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScreenFont()
     }
     
     override func didReceiveMemoryWarning() {
@@ -39,6 +41,33 @@ class HelpViewController: UIViewController,SFSafariViewControllerDelegate {
             
             self.present(viewController, animated: true)
         }
+    }
+    func setScreenFont(){
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                self.setFontSize(helpInfoTxt: 12, linkBtnTxt: 13)
+                print("iPhone 5 or 5S or 5C")
+            case 1334:
+                self.setFontSize(helpInfoTxt: 14, linkBtnTxt: 15)
+                print("iPhone 6/6S/7/8")
+            case 2208:
+                self.setFontSize(helpInfoTxt: 15, linkBtnTxt: 16)
+                print("iPhone 6+/6S+/7+/8+")
+            case 2436:
+                self.setFontSize(helpInfoTxt: 15, linkBtnTxt: 16)
+                print("iPhone X")
+            default:
+                print("unknown")
+            }
+        }
+        else if UIDevice().userInterfaceIdiom == .pad{
+            self.setFontSize(helpInfoTxt: 36, linkBtnTxt: 32)
+        }
+    }
+    func setFontSize(helpInfoTxt: CGFloat ,linkBtnTxt : CGFloat){
+        helpInfo.font = helpInfo.font.withSize(helpInfoTxt)
+        linkBtn.titleLabel?.font = .systemFont(ofSize: linkBtnTxt)
     }
     
     /*
