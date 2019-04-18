@@ -88,7 +88,24 @@ class SecurityViewController: UIViewController, SeedCheckupProtocol, StartUpPass
             }
         }
         else if UIDevice().userInterfaceIdiom == .pad{
-            self.setFontSize(PassBtnTxt: 42, PINBtnTxt: 42)
+            switch UIScreen.main.nativeBounds.height {
+            case 2048:
+                // iPad Pro (9.7-inch)/ iPad Air 2/ iPad Mini 4
+                self.setFontSize(PassBtnTxt: 32, PINBtnTxt: 32)
+                print("ipad air")
+                break
+            case 2224:
+                //iPad Pro 10.5-inch
+                self.setFontSize(PassBtnTxt: 34, PINBtnTxt: 34)
+                print("ipad air 10inch")
+                break
+            case 2732:
+                //iPad Pro 12.9-inch
+                self.setFontSize(PassBtnTxt: 42, PINBtnTxt: 42)
+                break
+            default:break
+            }
+            
         }
     }
     func setFontSize(PassBtnTxt: CGFloat, PINBtnTxt: CGFloat){

@@ -62,7 +62,24 @@ class HelpViewController: UIViewController,SFSafariViewControllerDelegate {
             }
         }
         else if UIDevice().userInterfaceIdiom == .pad{
-            self.setFontSize(helpInfoTxt: 36, linkBtnTxt: 32)
+            switch UIScreen.main.nativeBounds.height {
+            case 2048:
+                // iPad Pro (9.7-inch)/ iPad Air 2/ iPad Mini 4
+                 self.setFontSize(helpInfoTxt: 26, linkBtnTxt: 22)
+                print("ipad air")
+                break
+            case 2224:
+                //iPad Pro 10.5-inch
+                 self.setFontSize(helpInfoTxt: 28, linkBtnTxt: 24)
+                print("ipad air 10inch")
+                break
+            case 2732:
+                //iPad Pro 12.9-inch
+                 self.setFontSize(helpInfoTxt: 36, linkBtnTxt: 32)
+                break
+            default:break
+            }
+           
         }
     }
     func setFontSize(helpInfoTxt: CGFloat ,linkBtnTxt : CGFloat){

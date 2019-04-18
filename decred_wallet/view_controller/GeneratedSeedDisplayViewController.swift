@@ -122,8 +122,27 @@ class GeneratedSeedDisplayViewController: UIViewController {
             }
         }
         else if UIDevice().userInterfaceIdiom == .pad{
+            switch UIScreen.main.nativeBounds.height {
+            case 2048:
+                // iPad Pro (9.7-inch)/ iPad Air 2/ iPad Mini 4
+                self.setFontSize(HeaderTxt: 40, subHeadTxt: 30, waningTxt: 32, buttonCopyTxt: 28)
+                self.labelFont = 26
+                print("ipad air")
+                break
+            case 2224:
+                //iPad Pro 10.5-inch
+                self.setFontSize(HeaderTxt: 42, subHeadTxt: 32, waningTxt: 34, buttonCopyTxt: 30)
+                self.labelFont = 28
+                print("ipad air 10inch")
+                break
+            case 2732:
+                //iPad Pro 12.9-inch
             self.setFontSize(HeaderTxt: 50, subHeadTxt: 40, waningTxt: 42, buttonCopyTxt: 38)
             self.labelFont = 36
+            break
+            default:break
+        }
+            
         }
     }
     func setFontSize(HeaderTxt: CGFloat, subHeadTxt: CGFloat,waningTxt : CGFloat,buttonCopyTxt: CGFloat){
