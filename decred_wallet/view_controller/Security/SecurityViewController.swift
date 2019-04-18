@@ -30,7 +30,10 @@ class SecurityViewController: UIViewController, SeedCheckupProtocol, StartUpPass
         btnPin.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         btnPassword.backgroundColor = #colorLiteral(red: 0.9449833035, green: 0.9450840354, blue: 0.9490672946, alpha: 1)
     }
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setScreenFont()
+    }
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,5 +62,37 @@ class SecurityViewController: UIViewController, SeedCheckupProtocol, StartUpPass
                 }
             }
         }
+    }
+    func setScreenFont(){
+        if UIDevice().userInterfaceIdiom == .phone {
+            switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                //iPhone 5 or 5S or 5C
+                self.setFontSize(PassBtnTxt: 13, PINBtnTxt: 13)
+                break
+            case 1334:
+               // iPhone 6/6S/7/8
+                self.setFontSize(PassBtnTxt: 15, PINBtnTxt: 15)
+                
+                break
+            case 2208:
+                //iPhone 6+/6S+/7+/8+
+                self.setFontSize(PassBtnTxt: 16, PINBtnTxt: 16)
+                break
+            case 2436:
+              // iPhone X
+                self.setFontSize(PassBtnTxt: 16, PINBtnTxt: 16)
+                break
+            default: break
+               // print("unknown")
+            }
+        }
+        else if UIDevice().userInterfaceIdiom == .pad{
+            self.setFontSize(PassBtnTxt: 42, PINBtnTxt: 42)
+        }
+    }
+    func setFontSize(PassBtnTxt: CGFloat, PINBtnTxt: CGFloat){
+        self.btnPassword.titleLabel?.font = .systemFont(ofSize: PassBtnTxt)
+         self.btnPin.titleLabel?.font = .systemFont(ofSize: PINBtnTxt)
     }
 }
