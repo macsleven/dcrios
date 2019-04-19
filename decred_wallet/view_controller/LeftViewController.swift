@@ -105,6 +105,14 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
             UserDefaults.standard.set(true, forKey: GlobalConstants.Strings.INITIAL_SYNC_HELP)
             UserDefaults.standard.synchronize()
         }
+        
+        let clickGesture = UITapGestureRecognizer(target: self, action:  #selector(self.reconnect))
+        statusBackgroud.addGestureRecognizer(clickGesture)
+    }
+    
+    @objc func reconnect(){
+        wallet?.dropSpvConnection()
+        ((mainViewController as! UINavigationController).topViewController as! OverviewViewController).connectToDecredNetwork()
     }
     
     private func showAlert(message: String? , title: String?) {
@@ -173,8 +181,15 @@ class LeftViewController : UIViewController, LeftMenuProtocol {
                 this.connectionStatus.text = self!.walletInfo.syncStatus
                 this.blockInfo.text = self!.walletInfo.ChainStatus
                 this.chainStatus.text = self!.walletInfo.bestblockTimeInfo
-                this.progressbar.progressTintColor = UIColor(hex: "#2DD8A3")
-                this.progressbar.progress = (Float(self!.walletInfo.syncProgress) / 100.0)
+                if (this.connectionStatus.text == "Connecting to peers"){
+                    this.progressbar.progressTintColor = UIColor(hex: "#F9FAFA")
+                    this.progressbar.progress = 1
+                }
+                else{
+                    this.progressbar.progressTintColor = UIColor(hex: "#2DD8A3")
+                    this.progressbar.progress = (Float(self!.walletInfo.syncProgress) / 100.0)
+                }
+                
             }
             else{
                 this.progressbar.progressTintColor = UIColor(hex: "#F9FAFA")
