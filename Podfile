@@ -4,6 +4,9 @@ project 'decred_wallet'
 target 'Decred Wallet' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+  pod 'Fabric'
+  pod 'Crashlytics'
+
   pod 'SlideMenuControllerSwift'
   pod 'JGProgressHUD'
   pod 'QRCodeReader.swift'
@@ -19,4 +22,3 @@ target 'Decred WalletTests' do
   inherit! :search_paths
   # Pods for testing
 end
-
