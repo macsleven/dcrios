@@ -75,11 +75,6 @@ class Settings {
         return Settings.readBoolValue(for: DcrlibwalletSpendUnconfirmedConfigKey)
     }
     
-    static var incomingNotificationEnabled: Bool {
-        // todo, should be checked per wallet henceforth
-        return true
-    }
-    
     static var currencyConversionOption: CurrencyConversionOption {
         let selectedOption: String = Settings.readStringValue(for: DcrlibwalletCurrencyConversionConfigKey)
         return CurrencyConversionOption(rawValue: selectedOption) ?? .None
